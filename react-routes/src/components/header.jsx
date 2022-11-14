@@ -2,13 +2,16 @@ import { NavLink } from "react-router-dom";
 import classes from "./header.module.css";
 
 export const Header = () => {
+    const handleActiveLink = ({ isActive }) => {
+        return isActive ? { color: "yellow" } : null;
+      };
  return (
    <header className={classes.header}>
      <i> site logo </i>
      <nav className={classes.nav}>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/dogs">Dogs</NavLink>
-        <NavLink to="/cats">Cats</NavLink>
+        <NavLink style={handleActiveLink} to="/">Home</NavLink>
+        <NavLink style={handleActiveLink} to="/dogs">Dogs</NavLink>
+        <NavLink style={handleActiveLink} to="/cats">Cats</NavLink>
      </nav>
    </header>
  );
